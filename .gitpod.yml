@@ -5,10 +5,16 @@ tasks:
     init: cd backend/sentry-gitpod-demo && ./mvnw clean install -U -DskipTests
     command: ./mvnw spring-boot:run
     name: Run backend
+  - init: cd frontend && yarn
+    command: yarn start    
 
 ports:
   - port: 8080
     onOpen: open-preview
+    description: Backend preview
+  - port: 3000
+    onOpen: open-preview
+    description: Frontend preview
 
 vscode:
   extensions:
